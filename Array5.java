@@ -3,12 +3,11 @@ public class Array5 {
         int[] arr = { 2, 6, 7, 9, 25, 45, 64, 84, 68, 14 };
         int[] max = { 0, 0 };
         int[] min = { Integer.MAX_VALUE, Integer.MAX_VALUE };
-        int temp = 0;
         for (int i : arr) {
             if (max[0] < i) {
                 max[1] = max[0];
                 max[0] = i;
-            } else if (max[1] < i && i != max[0]) {
+            } else if (max[1] < i && max[0] != i) {
                 max[1] = i;
             }
         }
