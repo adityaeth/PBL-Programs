@@ -1,5 +1,3 @@
-import java.nio.channels.InterruptibleChannel;
-
 public class Array1 {
     public static void main(String[] args) {
         int[] num = { 5, 9, 8, 3, 4, 1 };
