@@ -18,13 +18,11 @@ public class MiniProject {
                 { "r", "Receptionist", "15000" }, { "m", "Manager", "40000" } };
 
         String[] sTable = new String[5];
-        for (int i = 0; i < empDetails.length; i++) {
-            if (search == empDetails[i][0]) {
-                for (int j = 0; j < empDetails.length; j++) {
-                    if (j != 2 && j != 3 && j != 4)
-                        sTable[i] = empDetails[i][j];
-                    else if (j != 4)
-                        sTable[j] = empDetails[i][j] + empDetails[i][j] + empDetails[i][j];
+        for (int i = 0; i < empDetails.length - 1; i++) {
+            for (int j = 0; j < empDetails.length - 2; j++) {
+                if (search.equals(empDetails[i][0])) {
+                    if (j != 2 && j != 3)
+                        sTable[j] = empDetails[i][j];
                 }
             }
         }
