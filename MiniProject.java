@@ -22,7 +22,7 @@ public class MiniProject {
         // { "k", "Clerk", "12000" }, { "r", "Receptionist", "15000" }, { "m",
         // "Manager", "40000" } };
 
-        String[] sTable = new String[5];
+        String[] sTable = new String[3];
         for (int i = 0; i < employee.length - 1; i++) {
             for (int j = 0, index = 0; j < employee.length - 2; j++) {
                 if (search.equals(employee[i][0])) {
@@ -66,7 +66,6 @@ public class MiniProject {
             }
             System.out.println();
             System.out.println(sTable[0] + "\t\t" + sTable[1] + "\t\t" + sTable[2] + "\t\t" + desig + "\t\t" + salary);
-
         }
     }
 }
