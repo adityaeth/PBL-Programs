@@ -17,8 +17,10 @@ public class MiniProject {
                 { "1006", "Suman", "1/1/2000", "e", "Manufacturing", "23000", "9000", "4400" },
                 { "1007", "Tanmay", "12/06/2006", "c", "PM", "29000", "12000", "10000" } };
 
-        String[][] designation = { { "e", "Engineer", "20000" }, { "c", "Consultant", "32000" },
-                { "k", "Clerk", "12000" }, { "r", "Receptionist", "15000" }, { "m", "Manager", "40000" } };
+        // String[][] designation = { { "e", "Engineer", "20000" }, { "c", "Consultant",
+        // "32000" },
+        // { "k", "Clerk", "12000" }, { "r", "Receptionist", "15000" }, { "m",
+        // "Manager", "40000" } };
 
         String[] sTable = new String[5];
         for (int i = 0; i < employee.length - 1; i++) {
@@ -28,43 +30,42 @@ public class MiniProject {
                         sTable[index++] = employee[i][j];
                         designCode = employee[i][3].charAt(0);
                     }
+                    int basic = Integer.parseInt(employee[i][5]);
+                    int hra = Integer.parseInt(employee[i][6]);
+                    int it = Integer.parseInt(employee[i][7]);
+                    switch (designCode) {
+                        case 'e':
+                            desig = "Engineer";
+                            salary = basic + hra + 20000 - it;
+                            break;
+                        case 'c':
+                            desig = "Consultant";
+                            salary = basic + hra + 32000 - it;
+                            break;
+                        case 'k':
+                            desig = "Clerk";
+                            salary = basic + hra + 12000 - it;
+                            break;
+                        case 'r':
+                            desig = "Receptionist";
+                            salary = basic + hra + 15000 - it;
+                            break;
+                        case 'm':
+                            desig = "Manager";
+                            salary = basic + hra + 40000 - it;
+                            break;
+                    }
                 }
-            }
-            switch (designCode) {
-                case 'e':
-                    desig = "Engineer";
-                    salary = Integer.parseInt(employee[i][5]) + Integer.parseInt(employee[i][6]) + 20000
-                            - Integer.parseInt(employee[i][7]);
-                    break;
-                case 'c':
-                    desig = "Consultant";
-                    salary = Integer.parseInt(employee[i][5]) + Integer.parseInt(employee[i][6]) + 32000
-                            - Integer.parseInt(employee[i][7]);
-                    break;
-                case 'k':
-                    desig = "Clerk";
-                    salary = Integer.parseInt(employee[i][5]) + Integer.parseInt(employee[i][6]) + 12000
-                            - Integer.parseInt(employee[i][7]);
-                    break;
-                case 'r':
-                    desig = "Receptionist";
-                    salary = Integer.parseInt(employee[i][5]) + Integer.parseInt(employee[i][6]) + 15000
-                            - Integer.parseInt(employee[i][7]);
-                    break;
-                case 'm':
-                    desig = "Manager";
-                    salary = Integer.parseInt(employee[i][5]) + Integer.parseInt(employee[i][6]) + 40000
-                            - Integer.parseInt(employee[i][7]);
-                    break;
             }
         }
         if (sTable[0] == null) {
             System.out.println("There is no employee with empid " + search);
         } else {
             for (String title : head) {
-                System.out.print(title + "\t");
+                System.out.print(title + "\t\t");
             }
-            System.out.println(sTable[0] + "\t" + sTable[1] + "\t" + sTable[2] + "\t" + desig + "\t" + salary);
+            System.out.println();
+            System.out.println(sTable[0] + "\t\t" + sTable[1] + "\t\t" + sTable[2] + "\t\t" + desig + "\t\t" + salary);
 
         }
     }
