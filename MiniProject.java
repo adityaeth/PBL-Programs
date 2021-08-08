@@ -1,8 +1,11 @@
-import jdk.internal.foreign.abi.SharedUtils.EmptyVaList;
-
 public class MiniProject {
     public static void main(String[] args) {
+        if (args.length < 1) {
+            System.out.println("Please Provide Emp. Id!");
+            System.exit(0);
+        }
         String search = args[0];
+        String[] head = { "Emp No.", "Emp Name", "Department", "Designation", "Salary" };
         String[][] empDetails = { { "1001", "Ashish", "01/04/2009", "e", "R&D", "20000", "8000", "3000" },
                 { "1002", "Sushma", "23/08/2012", "c", "PM", "30000", "12000", "9000" },
                 { "1003", "Rahul", "12/11/2008", "k", "Acct", "10000", "8000", "1000" },
@@ -16,17 +19,25 @@ public class MiniProject {
 
         String[] sTable = new String[5];
         for (int i = 0; i < empDetails.length; i++) {
-            for (int j = 0; j < empDetails.length; j++) {
-                
+            if (search == empDetails[i][0]) {
+                for (int j = 0; j < empDetails.length; j++) {
+                    if (j != 2 && j != 3 && j != 4)
+                        sTable[i] = empDetails[i][j];
+                    else if (j != 4)
+                        sTable[j] = empDetails[i][j] + empDetails[i][j] + empDetails[i][j];
+                }
             }
         }
-        System.out.println("Emp No.\tEmp Name\tDepartment\tDesignation\tSalary");
-
-        for (int i = 0; i < empDetails.length; i++) {
-            for (int j = 0; j < empDetails.length; j++) {
-                System.out.print(empDetails[i][j] + "\t");
+        if (sTable[0] == null) {
+            System.out.println("There is no employee with empid " + search);
+        } else {
+            for (String title : head) {
+                System.out.print(title + "\t");
             }
             System.out.println();
+            for (String table : sTable) {
+                System.out.print(table + "\t");
+            }
         }
     }
 }
